@@ -17,7 +17,7 @@ class MainActivity : AppCompatActivity() {
         rollButton.setOnClickListener{rollDice()}
         val countButton: Button = findViewById(R.id.button_add)
 
-        rollButton.setOnClickListener{add()}
+        countButton.setOnClickListener{add()}
     }
     private fun rollDice() {
         val resultText: TextView = findViewById(R.id.result_text)
@@ -28,13 +28,14 @@ class MainActivity : AppCompatActivity() {
         Toast.makeText(this, "button clicked",
             Toast.LENGTH_SHORT).show()
     }
-    private fun BigInteger.add(){
+    private fun add(){
         val resultText: TextView = findViewById(R.id.result_text)
-        if(resultText.text == "Hello World!"){
+        var number = resultText.text.toString().toIntOrNull()
+        if(number == null){
             resultText.text == "1";
         }else {
-            var string = resultText.text;
-            string = string +1;
+            number++
+            resultText.text = number.toString()
         }
     }
 }
